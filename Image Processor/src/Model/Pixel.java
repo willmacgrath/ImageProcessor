@@ -13,22 +13,4 @@ public class Pixel {
     this.blue = blue;
     this.green = green;
   }
-
-  public int red() {
-    return this.red;
-  }
-
-  public int blue() {
-    return this.blue;
-  }
-
-  public int green() {
-    return this.green;
-  }
-
-  public int getLuma() {
-    return
-  }
-
-
 }

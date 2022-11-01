@@ -1,8 +1,6 @@
 package Model;
 
-import java.util.ArrayList;
-
-public class ImageModel {
+public class ImageModel implements Model {
 
   private int[] pixel;
   private Pixel[][] picture;
@@ -10,6 +8,5 @@ public class ImageModel {
   public ImageModel(Pixel[][] picture) {
     this.picture = picture;
   }
-
 
 }
