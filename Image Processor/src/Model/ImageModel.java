@@ -1,6 +1,6 @@
 package Model;
 
-public class ImageModel implements Model {
+public class ImageModel extends ImageUtil {
 
   private int[] pixel;
   private Pixel[][] picture;
