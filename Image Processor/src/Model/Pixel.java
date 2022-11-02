@@ -25,15 +25,16 @@ public class Pixel {
   public int getGreen() {
     return this.green;
   }
-  public int getValue(Pixel pixel) {
+
+  public int getValue() {
     return Integer.MAX_VALUE;
   }
 
-  public int intensity(Pixel pixel) {
+  public int intensity() {
     return ((this.red + this.blue + this.green) / 3);
   }
 
-  public double luma(Pixel pixel) {
+  public double luma() {
     return ((0.2126 * this.red) + (0.7152 * this.green) + (0.0722 * this.blue));
   }
 

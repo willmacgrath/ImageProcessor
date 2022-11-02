@@ -1,9 +1,5 @@
 package Controller.Commands;
 
-import java.io.File;
-
-import javax.swing.*;
-
 import Controller.Controller;
 import Model.ImageModel;
 import Model.ImageUtil;
@@ -23,13 +19,14 @@ public class Red extends ImageUtil implements Controller {
     for (int y = 0; y < image.height(); y++) {
       for (int x = 0; x < image.width(); x++) {
         redImageArray[x][y] = redSetter(old[x][y]);
-          }
       }
-    redImage.insert(destImageName, redImageArray);
     }
+    redImage.insert(destImageName, redImageArray);
+  }
 
   private Pixel redSetter(Pixel pixel){
     int redVal = pixel.getRed();
     return new Pixel(redVal, redVal, redVal);
   }
 }
+
