@@ -8,7 +8,6 @@ import Model.ImageModel;
 public class Save implements Controller {
 
   private File imagePath;
-
   private File imageName;
 
   public Save(File imagePath, File imageName) {

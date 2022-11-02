@@ -16,14 +16,14 @@ public class ImageUtil implements Utils {
    *
    * @param filename the path of the file.
    */
-  public void readPPM(String filename) {
+  public Pixel[][] readPPM(String filename) {
     Scanner sc;
 
     try {
       sc = new Scanner(new FileInputStream(filename));
     } catch (FileNotFoundException e) {
       System.out.println("File " + filename + " not found!");
-      return;
+      return null;
     }
     StringBuilder builder = new StringBuilder();
     //read the file line by line, and populate a string. This will throw away any comment lines
@@ -44,38 +44,67 @@ public class ImageUtil implements Utils {
       System.out.println("Invalid PPM file: plain RAW file should begin with P3");
     }
     int width = sc.nextInt();
-    System.out.println("Width of image: " + width);
     int height = sc.nextInt();
-    System.out.println("Height of image: " + height);
     int maxValue = sc.nextInt();
-    System.out.println("Maximum value of a color in this file (usually 255): " + maxValue);
+    Pixel[][] array = new Pixel[width][height];
 
-    for (int i = 0; i < height; i++) {
-      for (int j = 0; j < width; j++) {
+    for (int y = 0; y < height; y++) {
+      for (int x = 0; x < width; x++) {
         int r = sc.nextInt();
         int g = sc.nextInt();
         int b = sc.nextInt();
-        System.out.println("Color of pixel (" + j + "," + i + "): " + r + "," + g + "," + b);
+        array[x][y] = new Pixel(r, g, b);
+
       }
     }
+    return array;
   }
 
-  @Override
-  public void width(String filename) {
+  public int width(String filename) {
+    Scanner sc;
+    try {
+      sc = new Scanner(new FileInputStream(filename));
+    } catch (FileNotFoundException e) {
+      System.out.println("File " + filename + " not found!");
+      return 0;
+    }
+    StringBuilder builder = new StringBuilder();
+    //read the file line by line, and populate a string. This will throw away any comment lines
+    while (sc.hasNextLine()) {
+      String s = sc.nextLine();
+      if (s.charAt(0) != '#') {
+        builder.append(s + System.lineSeparator());
+      }
+    }
+    //now set up the scanner to read from the string we just built
+    sc = new Scanner(builder.toString());
+    sc.next();
+    return sc.nextInt();
   }
 
-  @Override
-  public void height(String filename) {
 
-  }
+  public int height(String filename) {
+    Scanner sc;
 
-  @Override
-  public void maxValue(String filename) {
+    try {
+      sc = new Scanner(new FileInputStream(filename));
+    } catch (FileNotFoundException e) {
+      System.out.println("File " + filename + " not found!");
+      return 0;
+    }
+    StringBuilder builder = new StringBuilder();
+    //read the file line by line, and populate a string. This will throw away any comment lines
+    while (sc.hasNextLine()) {
+      String s = sc.nextLine();
+      if (s.charAt(0) != '#') {
+        builder.append(s + System.lineSeparator());
+      }
+    }
 
-  }
-
-  @Override
-  public void colorString(String filename) {
-
+    //now set up the scanner to read from the string we just built
+    sc = new Scanner(builder.toString());
+    sc.next();
+    sc.nextInt();
+    return sc.nextInt();
   }
 }

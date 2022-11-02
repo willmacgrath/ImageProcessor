@@ -6,6 +6,7 @@ public class Pixel {
   private int blue;
   private int green;
 
+  private int luma;
 
   public Pixel(int red, int blue, int green) {
     this.red = red;
@@ -24,7 +25,6 @@ public class Pixel {
   public int getGreen() {
     return this.green;
   }
-
   public int getValue(Pixel pixel) {
     return Integer.MAX_VALUE;
   }

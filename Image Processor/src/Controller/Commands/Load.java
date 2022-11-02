@@ -3,26 +3,21 @@ package Controller.Commands;
 import java.io.File;
 import Controller.Controller;
 import Model.ImageModel;
+import Model.ImageUtil;
+import Model.Utils;
 
-public class Load implements Controller {
+public class Load extends ImageUtil implements Controller {
 
   private File imagePath;
+  private String imageName;
 
-  private File fileName;
-
-  public Load(File imagePath, String fileName) {
+  public Load(File imagePath, String imageName) {
     this.imagePath = imagePath;
-    this.fileName = fileName;
+    this.imageName = imageName;
   }
 
-  //changes from a file to an image
-  //need pixel information
   @Override
   public void go(ImageModel image) {
-    imagePath.renameTo(fileName);
-    image.readPPM(String.valueOf(fileName));
+    image.insert(imageName, readPPM(imageName));
   }
-
-
-
 }
