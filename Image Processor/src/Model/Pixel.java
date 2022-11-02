@@ -34,9 +34,7 @@ public class Pixel {
     return ((this.red + this.blue + this.green) / 3);
   }
 
-  public double luma() {
-    return ((0.2126 * this.red) + (0.7152 * this.green) + (0.0722 * this.blue));
+  public int luma() { // typecasting is used to turn luna double to a usable int
+    return (int)((0.2126 * this.red) + (0.7152 * this.green) + (0.0722 * this.blue));
   }
-
-
 }

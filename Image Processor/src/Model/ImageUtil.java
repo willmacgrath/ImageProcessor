@@ -9,14 +9,17 @@ import java.io.FileInputStream;
  * This class contains utility methods to read a PPM image from file and simply print its contents. Feel free to change this method
  *  as required.
  */
-public class ImageUtil implements Utils {
+public class ImageUtil {
+
+  String imageName;
+  String destImageName;
 
   /**
    * Read an image file in the PPM format and print the colors.
    *
    * @param filename the path of the file.
    */
-  public Pixel[][] readPPM(String filename) {
+  public static Pixel[][] readPPM(String filename) {
     Scanner sc;
 
     try {
@@ -60,51 +63,22 @@ public class ImageUtil implements Utils {
     return array;
   }
 
-  public int width(String filename) {
-    Scanner sc;
-    try {
-      sc = new Scanner(new FileInputStream(filename));
-    } catch (FileNotFoundException e) {
-      System.out.println("File " + filename + " not found!");
-      return 0;
-    }
-    StringBuilder builder = new StringBuilder();
-    //read the file line by line, and populate a string. This will throw away any comment lines
-    while (sc.hasNextLine()) {
-      String s = sc.nextLine();
-      if (s.charAt(0) != '#') {
-        builder.append(s + System.lineSeparator());
+  public void componentChanger(ImageModel image) {
+    Pixel[][] old = readPPM(imageName);
+    Pixel[][] imageArray = new Pixel[image.height()][image.width()];
+    ImageModel imageModel = new ImageModel(destImageName,
+            imageArray);
+    for (int y = 0; y < image.height(); y++) {
+      for (int x = 0; x < image.width(); x++) {
+        imageArray[x][y] = colorSetter(old[x][y]);
       }
     }
-    //now set up the scanner to read from the string we just built
-    sc = new Scanner(builder.toString());
-    sc.next();
-    return sc.nextInt();
+    imageModel.insert(destImageName, imageArray);
   }
 
-
-  public int height(String filename) {
-    Scanner sc;
-
-    try {
-      sc = new Scanner(new FileInputStream(filename));
-    } catch (FileNotFoundException e) {
-      System.out.println("File " + filename + " not found!");
-      return 0;
-    }
-    StringBuilder builder = new StringBuilder();
-    //read the file line by line, and populate a string. This will throw away any comment lines
-    while (sc.hasNextLine()) {
-      String s = sc.nextLine();
-      if (s.charAt(0) != '#') {
-        builder.append(s + System.lineSeparator());
-      }
-    }
-
-    //now set up the scanner to read from the string we just built
-    sc = new Scanner(builder.toString());
-    sc.next();
-    sc.nextInt();
-    return sc.nextInt();
+  public Pixel colorSetter(Pixel pixel) {
+    return null;
   }
 }
+
+

@@ -4,7 +4,6 @@ import java.io.File;
 import Controller.Controller;
 import Model.ImageModel;
 import Model.ImageUtil;
-import Model.Utils;
 
 public class Load extends ImageUtil implements Controller {
 

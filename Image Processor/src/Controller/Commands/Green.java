@@ -7,25 +7,15 @@ import Model.Pixel;
 
 public class Green extends ImageUtil implements Controller {
 
-  String imageName;
-  String destImageName;
+
+  @Override
+  public Pixel colorSetter(Pixel pixel){
+    int greenVal = pixel.getGreen();
+    return new Pixel(greenVal, greenVal, greenVal);
+  }
 
   @Override
   public void go(ImageModel image) {
-    Pixel[][] old = readPPM(imageName);
-    Pixel[][] greenImageArray = new Pixel[image.height()][image.width()];
-    ImageModel greenImage = new ImageModel(destImageName,
-            greenImageArray);
-    for (int y = 0; y < image.height(); y++) {
-      for (int x = 0; x < image.width(); x++) {
-        greenImageArray[x][y] = greenSetter(old[x][y]);
-      }
-    }
-    greenImage.insert(destImageName, greenImageArray);
-  }
-
-  private Pixel greenSetter(Pixel pixel){
-    int greenVal = pixel.getGreen();
-    return new Pixel(greenVal, greenVal, greenVal);
+    componentChanger(image);
   }
 }
