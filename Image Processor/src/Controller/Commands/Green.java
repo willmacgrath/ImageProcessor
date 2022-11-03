@@ -7,7 +7,6 @@ import Model.Pixel;
 
 public class Green extends ImageUtil implements Controller {
 
-
   @Override
   public Pixel colorSetter(Pixel pixel){
     int greenVal = pixel.getGreen();

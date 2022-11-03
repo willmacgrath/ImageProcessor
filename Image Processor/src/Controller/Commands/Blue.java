@@ -1,5 +1,7 @@
 package Controller.Commands;
 
+import java.io.File;
+
 import Controller.Controller;
 import Model.ImageModel;
 import Model.ImageUtil;

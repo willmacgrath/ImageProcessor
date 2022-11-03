@@ -1,23 +1,33 @@
 package Controller.Commands;
 
 import java.io.File;
+import java.io.IOException;
 
 import Controller.Controller;
 import Model.ImageModel;
 
 public class Save implements Controller {
 
-  private File imagePath;
+  private String imagePath;
   private String imageName;
 
-  public Save(File imagePath, String imageName) {
+  public Save(String imagePath, String imageName) {
     this.imagePath = imagePath;
     this.imageName = imageName;
   }
 
   @Override
   public void go(ImageModel image) {
-    File file = new File("Files/" + imageName);
+    try {
+      File file = new File(imagePath);
+      if (file.createNewFile()) {
+        System.out.println("File created: " + file.getName());
+      } else {
+        System.out.println("File already exists.");
+      }
+    } catch (IOException e) {
+      System.out.println("An error occurred.");
+    }
   }
 }
 

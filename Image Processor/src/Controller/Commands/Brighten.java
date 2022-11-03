@@ -10,13 +10,9 @@ import Model.Pixel;
 public class Brighten extends ImageUtil implements Controller {
 
   private int percent;
-  private File imagePath;
-  private String imageName;
 
-  public Brighten(int percent, File imagePath, String imageName) {
+  public Brighten(int percent) {
     this.percent = percent;
-    this.imagePath = imagePath;
-    this.imageName = imageName;
   }
 
   @Override

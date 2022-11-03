@@ -19,8 +19,8 @@ import Model.Pixel;
 public class CommandsController extends ImageUtil {
   public static void main(String[] args) {
     Scanner s = new Scanner(System.in);
-    String fileName;
     Controller cmd = null;
+    String fileName = "";
     Pixel[][] array = readPPM(fileName);
     ImageModel m = new ImageModel(fileName, array);
     while (s.hasNext()) {
@@ -31,10 +31,10 @@ public class CommandsController extends ImageUtil {
           case "quit":
             return;
           case "load":
-            cmd = new Load(args[1], args[2]);
+            cmd = new Load(s.next(),s.next());
             break;
           case "save":
-            cmd = new Save(args[1], args[2]);
+            cmd = new Save(s.next(),s.next());
             break;
           case "red-component":
             cmd = new Red();
@@ -55,12 +55,12 @@ public class CommandsController extends ImageUtil {
             cmd = new Intensity();
             break;
           case "brighten":
-            cmd = new Brighten(args[1],args[2], args[3]);
+            cmd = new Brighten(Integer.parseInt(args[1]));
           case "horizontal-flip":
-            cmd = new HorizontalFlip(args[1], args[2]);
+            cmd = new HorizontalFlip();
             break;
           case "vertical-flip":
-            cmd = new VerticalFlip(args[1], args[2]);
+            cmd = new VerticalFlip();
             break;
           default:
             System.out.println(String.format("Unknown command %s", in));
@@ -77,5 +77,4 @@ public class CommandsController extends ImageUtil {
   }
 }
 
-  }
 }
