@@ -16,6 +16,8 @@ import Model.ImageModel;
 import Model.ImageUtil;
 import Model.Pixel;
 
+// I AM WRITING SOMETHING SO IT CHANGES WHEN I UPLOAD
+
 public class CommandsController extends ImageUtil {
   public static void main(String[] args) {
     Scanner s = new Scanner(System.in);
