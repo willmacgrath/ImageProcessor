@@ -7,12 +7,18 @@ import Model.ImageModel;
 import Model.ImageUtil;
 import Model.Pixel;
 
-public class Brighten extends ImageUtil implements Controller {
+/**
+ * Class contains the command object Brighten that takes the image and loads a brighter
+ * copy image of the original into our Image Library.
+ */
+public class Brighten extends ImageModel implements Controller {
 
   private int percent;
 
   public Brighten(int percent) {
-    this.percent = percent;
+    if (percent > 0) {
+      this.percent = percent;
+    }
   }
 
   @Override
@@ -20,7 +26,7 @@ public class Brighten extends ImageUtil implements Controller {
     int redVal = pixel.getRed() * (1 + percent/100);
     int blueVal = pixel.getBlue() * (1 + percent/100);
     int greenVal = pixel.getGreen() * (1 + percent/100);
-    return new Pixel(redVal, blueVal, greenVal);
+    return new Pixel(redVal, greenVal, blueVal);
   }
 
   @Override

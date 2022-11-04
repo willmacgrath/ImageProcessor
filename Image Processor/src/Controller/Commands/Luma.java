@@ -5,7 +5,12 @@ import Model.ImageModel;
 import Model.ImageUtil;
 import Model.Pixel;
 
-public class Luma extends ImageUtil implements Controller {
+
+/**
+ * Class contains the command object Luma that takes the image and loads a new
+ * greyscale image set to the luma value into our Image Library.
+ */
+public class Luma extends ImageModel implements Controller {
 
   @Override
   public Pixel colorSetter(Pixel pixel){

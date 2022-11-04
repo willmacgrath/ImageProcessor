@@ -6,14 +6,21 @@ import java.io.IOException;
 import Controller.Controller;
 import Model.ImageModel;
 
+
+/**
+ * Class contains the command object Save that takes the image and
+ * saves it to a user specified location.
+ */
 public class Save implements Controller {
 
   private String imagePath;
-  private String imageName;
 
-  public Save(String imagePath, String imageName) {
+  /**
+   * This constructor is used so that we can allow the user to choose where the image is saved to.
+   * @param imagePath where the user wants the image saved
+   */
+  public Save(String imagePath) {
     this.imagePath = imagePath;
-    this.imageName = imageName;
   }
 
   @Override

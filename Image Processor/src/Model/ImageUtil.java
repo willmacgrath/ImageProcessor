@@ -6,26 +6,21 @@ import java.io.FileInputStream;
 
 
 /**
- * This class contains utility methods to read a PPM image from file and simply print its contents. Feel free to change this method
- *  as required.
+ * This class contains utility methods to read a PPM image from file and simply print its contents.
+ * Feel free to change this method as required.
  */
 public class ImageUtil {
 
-  String imageName;
-  String destImageName;
-
   /**
-   * Read an image file in the PPM format and print the colors.
-   *
+   * Read an image file and format it into a Pixel[][].
    * @param filename the path of the file.
    */
   public static Pixel[][] readPPM(String filename) {
     Scanner sc;
-
     try {
       sc = new Scanner(new FileInputStream(filename));
     } catch (FileNotFoundException e) {
-      System.out.println("File " + filename + " not found!");
+      System.out.println("Please Enter Command: ");
       return null;
     }
     StringBuilder builder = new StringBuilder();
@@ -62,23 +57,4 @@ public class ImageUtil {
     }
     return array;
   }
-
-  public void componentChanger(ImageModel image) {
-    Pixel[][] old = readPPM(imageName);
-    Pixel[][] imageArray = new Pixel[image.height()][image.width()];
-    ImageModel imageModel = new ImageModel(destImageName,
-            imageArray);
-    for (int y = 0; y < image.height(); y++) {
-      for (int x = 0; x < image.width(); x++) {
-        imageArray[x][y] = colorSetter(old[x][y]);
-      }
-    }
-    imageModel.insert(destImageName, imageArray);
-  }
-
-  public Pixel colorSetter(Pixel pixel) {
-    return null;
-  }
 }
-
-

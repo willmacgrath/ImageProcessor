@@ -5,7 +5,11 @@ import Model.ImageModel;
 import Model.ImageUtil;
 import Model.Pixel;
 
-public class Intensity extends ImageUtil implements Controller {
+/**
+ * Class contains the command object Intensity that takes the image and loads a new
+ * greyscale image set to the intensity value into our Image Library.
+ */
+public class Intensity extends ImageModel implements Controller {
 
   @Override
   public Pixel colorSetter(Pixel pixel){

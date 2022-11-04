@@ -16,8 +16,10 @@ import Model.ImageModel;
 import Model.ImageUtil;
 import Model.Pixel;
 
-// I AM WRITING SOMETHING SO IT CHANGES WHEN I UPLOAD
 
+/**
+ * The main of the program, allows the user to perform commands on ImageModel objects.
+ */
 public class CommandsController extends ImageUtil {
   public static void main(String[] args) {
     Scanner s = new Scanner(System.in);
@@ -34,34 +36,45 @@ public class CommandsController extends ImageUtil {
             return;
           case "load":
             cmd = new Load(s.next(),s.next());
+            System.out.println("Image Loaded");
             break;
           case "save":
-            cmd = new Save(s.next(),s.next());
+            cmd = new Save(s.next());
+            System.out.println("Image Saved");
             break;
           case "red-component":
             cmd = new Red();
+            System.out.println("Image Created");
             break;
           case "blue-component":
             cmd = new Blue();
+            System.out.println("Image Created");
             break;
           case "green-component":
             cmd = new Green();
+            System.out.println("Image Created");
             break;
           case "value-component":
             cmd = new Value();
+            System.out.println("Image Created");
             break;
           case "luma-component":
             cmd = new Luma();
+            System.out.println("Image Created");
             break;
           case "intensity-component":
             cmd = new Intensity();
+            System.out.println("Image Created");
             break;
           case "brighten":
-            cmd = new Brighten(Integer.parseInt(args[1]));
+            cmd = new Brighten(Integer.parseInt(s.next()));
           case "horizontal-flip":
             cmd = new HorizontalFlip();
             break;
           case "vertical-flip":
+            cmd = new VerticalFlip();
+            break;
+          case :
             cmd = new VerticalFlip();
             break;
           default:
@@ -75,8 +88,7 @@ public class CommandsController extends ImageUtil {
       }
       catch (IllegalArgumentException ime) { // make sure we need this
         System.out.println("Illegal" + in);
+      }
     }
   }
-}
-
 }

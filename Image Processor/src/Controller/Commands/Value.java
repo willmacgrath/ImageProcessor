@@ -5,7 +5,12 @@ import Model.ImageModel;
 import Model.ImageUtil;
 import Model.Pixel;
 
-public class Value extends ImageUtil implements Controller {
+
+/**
+ * Class contains the command object Value that takes the image and loads a new
+ * greyscale image set to the value into our Image Library.
+ */
+public class Value extends ImageModel implements Controller {
 
   @Override
   public Pixel colorSetter(Pixel pixel){

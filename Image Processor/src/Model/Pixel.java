@@ -1,17 +1,19 @@
 package Model;
 
 
+/**
+ * Pixels are individual units that contain an rbg
+ */
 public class Pixel {
   private int red;
   private int blue;
   private int green;
 
-  private int luma;
 
-  public Pixel(int red, int blue, int green) {
+  public Pixel(int red, int green, int blue) { // THIS ISNT CORRECT, FIX ALL PIXEL USAGES TO RGB
     this.red = red;
-    this.blue = blue;
     this.green = green;
+    this.blue = blue;
   }
 
   public int getRed() {
