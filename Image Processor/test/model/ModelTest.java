@@ -2,8 +2,8 @@ package model;
 
 import org.junit.Before;
 import org.junit.Test;
-import static Utils.ImageUtil.readPPM;
 import static org.junit.Assert.assertEquals;
+import static utils.ImageUtil.readPPM;
 
 /**
  * This class tests the functionality of the model.

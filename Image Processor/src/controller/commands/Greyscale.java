@@ -3,6 +3,11 @@ package controller.commands;
 import controller.Controller;
 import model.Model;
 
+
+/**
+ * The Greyscale class represents the function object for the greyscale command and applies
+ * the grey-scale filter to the desired image.
+ */
 public class Greyscale extends AbstractCommand implements Controller {
 
   private String oldImageName;

@@ -1,10 +1,13 @@
 package controller.commands;
 
-import Utils.MathUtils;
-import model.ImageModel;
+import utils.MathUtils;
 import model.Model;
 import model.Pixel;
 
+/**
+ * This Abstract class contains the logic for most methods that involve creating a new image
+ * based on another's pixels.
+ */
 public abstract class AbstractCommand {
 
   protected double[][] matrix;
@@ -19,7 +22,8 @@ public abstract class AbstractCommand {
     Pixel[][] imageArray = new Pixel[image.height(oldName)][image.width(oldName)];
     for (int y = 0; y < image.height(oldName); y++) {
       for (int x = 0; x < image.width(oldName); x++) {
-        imageArray[x][y] = colorSetter(image.getPixelAt(oldName, x,y)); // may cause issues with large images
+        imageArray[x][y] = colorSetter(image.getPixelAt(oldName, x,y));
+        // may cause issues when images get too large
       }
     }
     image.insert(newName, imageArray);
@@ -48,7 +52,7 @@ public abstract class AbstractCommand {
    * @param image represents the image being flipped.
    */
   public void vertical(Model image, String oldName, String newName) {
-    Pixel[][] imageArray = new Pixel[image.height(oldName)][image.width(oldName)]; //fix out of bound
+    Pixel[][] imageArray = new Pixel[image.height(oldName)][image.width(oldName)];
     for (int y = 0; y < image.height(oldName); y++) {
       for (int x = 0; x < image.width(oldName); x++) {
         imageArray[image.height(oldName) - x][y] =

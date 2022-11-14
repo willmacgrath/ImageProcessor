@@ -94,7 +94,8 @@
 //    save.operateOn(m2);
 //  }
 //
-//  // I want to create a method to turn the pixel values into a string so we can compare images based off that
+//  // I want to create a method to turn the pixel values into a string
+//  so we can compare images based off that
 //  @Test
 //  public void testRed() {
 //    load.operateOn(m);

@@ -1,0 +1,61 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Will and Justin's Image Processor:\
+\
+CommandsController (main): The program is ran from this location. It scans for and collects inputs\
+which are handled by a switch statement, which turns the controller into a new Command,\
+and executes the command on the file. If inputted correctly, the user will be given feedback\
+that the file was loaded, changed, saved etc..\
+\
+\
+controller Interface: Solely contains the go() method. This interface is extended by\
+our command objects so they can be executed on an image the main/controller\
+\
+Classes under controller:\
+Blue: Changes all rgb values to the blue value to make a grey-scale image\
+Brighten: Increases the rgb values by the specified percentage to brighten the image\
+Green: Changes all rgb values to the green value to make a grey-scale image\
+Horizontal: Flips an image horizontally\
+Intensity: Changes all rgb values to the intensity value to make a grey-scale image\
+Load: Loads an image into the program and stores it into an image library\
+Luma: Changes all rgb values to the luma value to make a grey-scale image\
+Red: Changes all rgb values to the red value to make a grey-scale image\
+Save: Saves an image File to the specified location on the computer\
+Value: Changes all rgb values to each pixels maximum value to make a grey-scale image\
+VerticalFlip: Flips an image horizontally\
+Sepia: Puts the Sepia filter over an image\
+Blur: Blurs an image \
+Greyscale: Creates a greyscale version of the image\
+Sharpen: Sharpens an image\
+\
+\
+model Interface: Handles methods that relate to the Images themselves. Methods that edit or\
+change a photo like the greyscale and flip commands are primarily executed within the model.\
+\
+Classes under model:\
+ImageModel: The class that defines and deals with the Images themselves. Each ImageModel has\
+a String name and an array of Pixels that make up the actual picture people look at. Within\
+ImageModel, there are helpers that allow the commands to execute on each pixel, commands to find\
+an image's qualities like width and maxValue, and there are methods relating to the Image Library.\
+The Image Library is a hash map that holds images after they have been loaded, and users can\
+edit and change these photos how they would like.\
+\
+\
+Stand-alone classes:\
+ImageUtil: Contains two versions of readPPM, of which is the original which outputs the ppm.'s\
+contents as a String, and another that outputs them as a Pixel[][] in order to be usable in other\
+methods.\
+\
+Pixel: Each pixel contains a red value, a green value, and a blue value. This method allows us to\
+interact with individual pixels within the Pixel array that makes up the ImageModel. This way we\
+can see individual pixels color values, as well as make the calculations for intensity etc...\
+\
+Design Changes: \
+- we moved componentChanger() and colorsetter() to an abstract command, which lets us much more simply abstract out the loop in it\
+- we changed color setter to use matrix math, so all files that are just color changes only involve creating a new matrix filter and everything else works the same. \
+-We simplified our controller by passing all arguments into the command classes for them to be handled there. This reduces clutter and allows our code to be simpler}

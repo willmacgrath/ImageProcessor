@@ -7,10 +7,14 @@ import controller.Controller;
 import model.Model;
 import model.Pixel;
 
-import static Utils.ImageUtil.readImage;
-import static Utils.ImageUtil.writeBuffered;
-import static javax.imageio.ImageIO.read;
+import static utils.ImageUtil.readImage;
+import static utils.ImageUtil.writeBuffered;
 
+
+/**
+ * The BLur class represents the function object for the Blur command and applies
+ * the blur filter to the desired image.
+ */
 public class Blur extends AbstractCommand implements Controller {
 
   String refName;
@@ -26,8 +30,8 @@ public class Blur extends AbstractCommand implements Controller {
   public void operateOn(Model image) {
     BufferedImage bufferedImage = writeBuffered(image.getLibraryImagePixels(refName));
     Kernel blurFilter = new Kernel(3, 3,
-            new float[]{0.0625f, 0.125f, 0.0625f, 0.125f,
-                    0.25f, 0.125f, 0.0625f, 0.125f, 0.0625f});
+            new float[]{0.0625f, 0.125f, 0.0625f, 0.125f, 0.25f,
+                        0.125f, 0.0625f, 0.125f, 0.0625f});
     ConvolveOp cop =
             new ConvolveOp(blurFilter, ConvolveOp.EDGE_NO_OP, null);
     BufferedImage newBufferedImage = cop.filter(bufferedImage, null);

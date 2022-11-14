@@ -20,7 +20,7 @@ import controller.commands.Red;
 import controller.commands.SavePPM;
 import controller.commands.Value;
 import controller.commands.VerticalFlip;
-import Utils.ImageUtil;
+import utils.ImageUtil;
 
 
 /**

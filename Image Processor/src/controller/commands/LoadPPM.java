@@ -2,7 +2,7 @@ package controller.commands;
 
 import controller.Controller;
 import model.Model;
-import static Utils.ImageUtil.readPPM;
+import static utils.ImageUtil.readPPM;
 
 /**
  * Class contains the command object Load that takes the image and loads it

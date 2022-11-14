@@ -9,10 +9,14 @@ import controller.Controller;
 import model.Model;
 import model.Pixel;
 
-import static Utils.ImageUtil.readImage;
-import static Utils.ImageUtil.writeBuffered;
+
+import static utils.ImageUtil.writeBuffered;
 
 
+/**
+ * The Save class represents the function object for the Save command and saves
+ * the non-ppm file to user specified location.
+ */
 public class Save implements Controller {
 
   private String imagePath;

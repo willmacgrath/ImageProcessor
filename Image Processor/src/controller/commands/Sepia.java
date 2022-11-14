@@ -2,9 +2,12 @@ package controller.commands;
 
 import controller.Controller;
 import model.Model;
-import model.Pixel;
 
 
+/**
+ * The Sepia class represents the function object for the Sepia command and applies
+ * the sepia filter to the desired image.
+ */
 public class Sepia extends AbstractCommand implements Controller {
 
   private String oldImageName;

@@ -2,7 +2,7 @@ package controller.commands;
 
 import controller.Controller;
 import model.Model;
-import model.Pixel;
+
 
 /**
  * Class contains the command object Green that takes the image and loads a new

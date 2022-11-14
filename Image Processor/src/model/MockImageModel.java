@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-import static Utils.ImageUtil.readPPMAsString;
+import static utils.ImageUtil.readPPMAsString;
 
 
 /**
